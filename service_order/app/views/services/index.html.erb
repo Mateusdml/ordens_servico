@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Serviços</h1>
+    </div>
+    <div class="align-self-end pb-1">
+      <%= link_to 'Novo Serviço', new_service_path, class:"btn btn-primary p-2 bd-highlight" %>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Descricao</th>
+      <th>Valor</th>
+      <th>Mostrar</th>
+      <th>Editar</th>
+      <th>Excluir</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= service.descricao %></td>
+        <td>R$ <%=number_with_precision(service.valor, precision: 2)%></td>
+        <td><%= link_to 'Mostrar', service %></td>
+        <td><%= link_to 'Editar', edit_service_path(service) %></td>
+        <td><%= link_to 'Excluir', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

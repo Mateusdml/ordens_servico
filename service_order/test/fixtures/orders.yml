@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: one
+  quantidade: 1
+  employee: MyString
+  data: 2019-09-21
+  horaInicio: 2019-09-21 13:01:45
+  horaFim: 2019-09-21 14:01:45
+  detalhe: MyString
+
+two:
+  service: two
+  quantidade: 1
+  employee: MyString
+  data: 2019-09-21
+  horaInicio: 2019-09-21 13:01:45
+  horaFim: 2019-09-21 14:00:00
+  detalhe: MyString

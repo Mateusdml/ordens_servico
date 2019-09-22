@@ -1,0 +1,34 @@
+<h1>Resumo</h1>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+        <th>Serviço</th>
+        <th>Valor Unitário</th>
+        <th>Quantidade</th>
+        <th>Valor Total</th>
+        <th>Desconto</th>
+        <th>Valor Final</th>
+        </tr>
+    </thead>
+  
+    <tbody>
+        <% @orders.each do |order| %>
+            <tr>
+            <td><%= order.service.descricao %></td>
+            <td>R$ <%= number_with_precision(order.service.valor, precision: 2) %></td>
+            <td><%= order.quantidade %></td>
+            <td>R$ <%= number_with_precision(valor_total(order.quantidade,order.service.valor), precision: 2) %></td>
+            <td><%= valor_desconto(order.quantidade) %></td>
+            <td>R$ <%= number_with_precision(valor_final(order.quantidade,order.service.valor), precision: 2) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<br>
+
+
+<ul class="pagination justify-content-center">
+<%= paginate @orders, theme: 'twitter-bootstrap-4'%>
+<ul>
+<br>

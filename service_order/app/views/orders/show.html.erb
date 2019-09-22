@@ -1,0 +1,37 @@
+<p>
+  <strong>Service:</strong>
+  <%= @order.service.descricao %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @order.quantidade %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @order.employee %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @order.data %>
+</p>
+
+<p>
+  <strong>Horainicio:</strong>
+  <%= @order.horaInicio.to_time.strftime('%H:%M:%S') %>
+</p>
+
+<p>
+  <strong>Horafim:</strong>
+  <%= @order.horaFim.to_time.strftime('%H:%M:%S') %>
+</p>
+
+<p>
+  <strong>Detalhe:</strong>
+  <%= @order.detalhe %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

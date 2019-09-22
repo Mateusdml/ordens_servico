@@ -1,0 +1,55 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+
+  <div class="field">
+    <%= form.label :service_id %>
+    <%= collection_select(:order, :service_id, @services_options_for_select, :id, :descricao, {}, {class:"custom-select"}) %> 
+  </div>
+
+  <div class="field">
+    <%= form.label :quantidade %>
+    <%= form.number_field :quantidade, class:'form-control'  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee %>
+    <%= form.text_field :employee, class:'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.date_select :data%>
+  </div>
+
+  <div class="field">
+    <%= form.label :horaInicio %>
+    <%= form.time_select :horaInicio%>
+  </div>
+
+  <div class="field">
+    <%= form.label :horaFim %>
+    <%= form.time_select :horaFim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detalhe %>
+    <%= form.text_field :detalhe, class:'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  </div>
+<% end %>
